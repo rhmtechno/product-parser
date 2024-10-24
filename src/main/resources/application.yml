@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/product_db?createDatabaseIfNotExist=true
+    #url: jdbc:postgresql://host.docker.internal:5432/product_db?createDatabaseIfNotExist=true
+    username: postgres
+    password: mysecretpassword
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+      minimum-idle: 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 2MB
+server:
+  port: 8080
+
+logging:
+  config: classpath:log/logback.xml
